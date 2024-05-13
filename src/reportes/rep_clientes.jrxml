@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep_clientes" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="74e95356-6df2-4ca0-85fd-5c31e0ab2166">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[SELECT
+     cliente.`cod_cli` AS cliente_cod_cli,
+     cliente.`ced_cli` AS cliente_ced_cli,
+     cliente.`nom_cli` AS cliente_nom_cli,
+     cliente.`ape_cli` AS cliente_ape_cli,
+     cliente.`dir_cli` AS cliente_dir_cli,
+     cliente.`telf_cli` AS cliente_telf_cli,
+     cliente.`nit_cli` AS cliente_nit_cli,
+     cliente.`cod_ciu` AS cliente_cod_ciu,
+     ciudad.`cod_ciu` AS ciudad_cod_ciu,
+     ciudad.`cod_prov` AS ciudad_cod_prov,
+     ciudad.`nom_ciu` AS ciudad_nom_ciu,
+     empresa.`cod_empresa` AS empresa_cod_empresa,
+     empresa.`nom_empresa` AS empresa_nom_empresa,
+     empresa.`ruc` AS empresa_ruc,
+     empresa.`nom_representante` AS empresa_nom_representante,
+     empresa.`telf` AS empresa_telf,
+     empresa.`direccion` AS empresa_direccion,
+     empresa.`email` AS empresa_email,
+     empresa.`estado` AS empresa_estado
+FROM
+     `ciudad` ciudad INNER JOIN `cliente` cliente ON ciudad.`cod_ciu` = cliente.`cod_ciu`,
+     `empresa` empresa
+where  empresa.estado = 1]]>
+	</queryString>
+	<field name="cliente_cod_cli" class="java.lang.Integer"/>
+	<field name="cliente_ced_cli" class="java.lang.String"/>
+	<field name="cliente_nom_cli" class="java.lang.String"/>
+	<field name="cliente_ape_cli" class="java.lang.String"/>
+	<field name="cliente_dir_cli" class="java.lang.String"/>
+	<field name="cliente_telf_cli" class="java.lang.String"/>
+	<field name="cliente_nit_cli" class="java.lang.String"/>
+	<field name="cliente_cod_ciu" class="java.lang.Integer"/>
+	<field name="ciudad_cod_ciu" class="java.lang.Integer"/>
+	<field name="ciudad_cod_prov" class="java.lang.Integer"/>
+	<field name="ciudad_nom_ciu" class="java.lang.String"/>
+	<field name="empresa_cod_empresa" class="java.lang.Integer"/>
+	<field name="empresa_nom_empresa" class="java.lang.String"/>
+	<field name="empresa_ruc" class="java.lang.String"/>
+	<field name="empresa_nom_representante" class="java.lang.String"/>
+	<field name="empresa_telf" class="java.lang.String"/>
+	<field name="empresa_direccion" class="java.lang.String"/>
+	<field name="empresa_email" class="java.lang.String"/>
+	<field name="empresa_estado" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="147" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="137" width="750" height="6" backcolor="#000000" uuid="b39ecae1-85a2-4a3b-ad97-1d59803bf941"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="234" y="113" width="293" height="26" uuid="b5465624-4125-48d7-a298-6cc4dc973e94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE CLIENTES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="62" width="78" height="13" uuid="a7b38784-3461-47b0-9c6c-670420adda7b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresa_ruc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="90" width="71" height="17" uuid="b90b9bb2-c7ec-4aa9-a403-f525d928f1e8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Representante:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="76" width="123" height="21" uuid="ac574e57-0e5c-4a09-bba4-40d4731e659b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresa_email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="76" width="37" height="21" uuid="2e5389fe-3c68-4a1d-975c-c0a4bc0f8b1c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="240" y="-14" width="386" height="53" uuid="881c7d44-6946-4628-9666-c531282bb52a"/>
+				<textElement textAlignment="Center">
+					<font size="25" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresa_nom_empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="90" width="216" height="17" uuid="5d6ec851-1e92-4a8b-b0e4-d58c9bd3574f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresa_nom_representante}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="62" width="45" height="12" uuid="9948bb56-1a15-4e10-8288-0c1ff698b305"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIT :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="159" y="62" width="107" height="13" uuid="079123e5-53c9-4dee-9b0d-775fa5ecbd4e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresa_telf}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="116" y="62" width="42" height="13" uuid="668c35f9-94e1-45bb-8a9d-ca00b4a1f613"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Télefono:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="28" width="425" height="20" uuid="63bd3687-6d67-46c7-a33d-b42b46ee8ea4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{empresa_direccion}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="1" y="-14" width="197" height="121" uuid="68bda661-bae0-4c71-b7f8-6bb0a9bb3f5a"/>
+				<imageExpression><![CDATA["C:/Users/eroda/OneDrive - Universidad Mariano Gálvez/Documentos/ferreterias/ferrocon_desktop/src/iconos/ferrocon-inicio.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="623" y="2" width="133" height="20" uuid="75402a27-627c-4e08-bdd1-a0748aae87e3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="582" y="2" width="39" height="20" uuid="0b601650-c04a-49e7-919f-97eeab9a660a"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="2" width="100" height="21" uuid="363b7d61-0bd3-4ebe-971c-a884892afc3a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Reporte de Clientes]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="3" width="750" height="20" forecolor="#DE1B1B" backcolor="#DE1B1B" uuid="982dc118-f3da-4df8-8c91-3be08e4a298d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="2" y="2" width="31" height="20" forecolor="#FFFFFF" uuid="df791d9d-15ea-44de-b968-c443f94ff5a4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="2" width="65" height="20" forecolor="#FFFFFF" uuid="b94e80c2-2f3f-4c72-8db4-403628719cd5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="2" width="155" height="20" forecolor="#FFFFFF" uuid="bcd397a7-b5a2-40c3-ad66-0c487e73ce6a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="2" width="206" height="20" forecolor="#FFFFFF" uuid="ac13e35f-554d-4e37-9ccf-6738c607cb4d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="2" width="62" height="20" forecolor="#FFFFFF" uuid="5f149e44-446e-4211-ab21-bd19f619137a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="535" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="031242aa-f95b-409a-a620-6045b11ca27d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="3" width="110" height="20" forecolor="#FFFFFF" uuid="b4e9d285-fed7-410c-830b-cb640d1ab7f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECTOR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="3" width="31" height="20" uuid="46d0b68a-0d7f-46d0-ab48-cf1b1ea90047"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cod_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="104" y="3" width="75" height="20" uuid="2dbdf166-4561-476c-a061-702875b9abcc"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_nom_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="3" width="80" height="20" uuid="bc7e006e-7083-484e-a7f3-a62aed7302f7"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_ape_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="3" width="206" height="20" uuid="dba84153-452d-4bae-94fa-cfb611190445"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_dir_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="2" width="62" height="20" uuid="f0b9925b-5cf8-4b6a-90f2-bd2fb2ead10d"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_telf_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="37" y="3" width="65" height="20" uuid="b35cc8ce-cc2b-4b89-9940-729bc4427d33"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_ced_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="536" y="3" width="99" height="20" uuid="146ae294-29f2-4d52-9bfb-ea434d18f8b4"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_nit_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="640" y="3" width="110" height="20" uuid="a7d43690-c194-4bb6-98d6-d06fb619ce7e"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudad_nom_ciu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="709" y="26" width="34" height="20" uuid="377594ab-a8bc-4681-8f73-90286a276566"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="636" y="26" width="72" height="20" uuid="09f00582-b4d2-41a5-a832-1b00b0a77a57"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
